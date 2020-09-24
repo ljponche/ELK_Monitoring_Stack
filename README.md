@@ -67,7 +67,6 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running docker ps after successfully configuring the ELK instance:
 
-ELK Ansible Container
 ![ELK Ansible Container](https://github.com/ljponche/ELK_Monitoring_Stack/blob/master/Images/ELK_Ansible%20_Container.png.jpg)
 
 
