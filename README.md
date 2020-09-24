@@ -36,8 +36,7 @@ The configuration details of each machine may be found below:
 | ELK-VM               | Monitoring   | 10.1.0.4   | Linux (ubuntu 18.04) |
 
 
-Access Policies
-
+**Access Policies**
 A summary of the access policies in place can be found in the table below.
 
 **NSG_1**
@@ -55,42 +54,31 @@ A summary of the access policies in place can be found in the table below.
 | 65500    | DenyAllInbound      | Any  | Any      | Any               | Any            | Deny   |
 
 
-Elk Configuration
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-
-TODO: What is the main advantage of automating configuration with Ansible?
+**Elk Configuration**
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous as this allows for a streamlined, scalable deployment if this configuration needs to be redeployed elsewhere in the future. This also helps to cut down on the potential for errors during initial configuration. 
 
 The playbook implements the following tasks:
 
-TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc.
-...
-...
+* Uninstall Apache2 to clear docker conflicts
+* Install pip3 for python packages
+* Enable Docker service
+* Increase virtual memory on ELK VM
+* Download and launch a docker web container
 
-The following screenshot displays the result of running docker ps after successfully configuring the ELK instance.
-Note: The following image link needs to be updated. Replace docker_ps_output.png with the name of your screenshot image file.
+The following screenshot displays the result of running docker ps after successfully configuring the ELK instance:
+
+ELK Ansible Container
+![ELK Ansible Container](https://github.com/ljponche/ELK_Monitoring_Stack/blob/master/Images/ELK_Ansible%20_Container.png.jpg)
 
 
 Target Machines & Beats
-This ELK server is configured to monitor the following machines:
+This ELK server is configured to monitor the following machines: 10.0.0.6, 10.0.0.7, & 10.0.0.8
 
-TODO: List the IP addresses of the machines you are monitoring
+We have installed Filebeat to these machines, which lets us monitor specific files, and log changes against those files. 
 
-We have installed the following Beats on these machines:
-
-TODO: Specify which Beats you successfully installed
-
-These Beats allow us to collect the following information from each machine:
-
-TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., Winlogbeat collects Windows logs, which we use to track user logon events, etc.
-
-
-Using the Playbook
+**Using the Playbook**
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned:
 SSH into the control node and follow the steps below:
-
-Copy the _____ file to _____.
-Update the _____ file to include...
-Run the playbook, and navigate to ____ to check that the installation worked as expected.
 
 TODO: Answer the following questions to fill in the blanks:
 
