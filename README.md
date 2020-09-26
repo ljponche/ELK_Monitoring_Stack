@@ -23,7 +23,7 @@ This document contains the following details:
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 Load balancing ensures that the application will be highly available, in addition to restricting inbound access to the network.
 
-By routing HTTP traffic through a load balancer, this will help to migitaging DDoS attacks. And by restricting access to the network to a single JumpBox VM, we can more easily monitor connections to our internal network web VMs.  Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the VM metrics and system files.
+By routing HTTP traffic through a load balancer, this will help to mitigate DDoS attacks. By restricting access to the network to a single JumpBox VM, we can more easily monitor connections to our internal network web VMs. Finally, integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the VM metrics and system files.
 
 The configuration details of each machine may be found below:
 
@@ -79,8 +79,10 @@ We have installed Filebeat to these machines, which lets us monitor specific fil
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned:
 SSH into the control node and follow the steps below:
 
-TODO: Answer the following questions to fill in the blanks:
-
-Which file is the playbook? Where do you copy it?
-Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?
-_Which URL do you navigate to in order to check that the ELK server is running?
+* Edit the /etc/ansible/ansible.cfg and the /etc/ansible/hosts files:
+  * In the hosts file, add the correct IPs for the webservers and for the ELK server, each in their own section.
+  * In the ansible.cfg file, change the remote user on the jump box to the webserver/ELK username.
+* Download the applicable playbooks for the webservers, ELK, and any beats you wish to configure, to the ansible container.
+* In /etc/ansible/files, save the beats config files and update them with the IP address of the ELK Server
+* Run the playbooks. 
+* On your home machine, enter :5601/app/kibana in your web browser to test the install.
